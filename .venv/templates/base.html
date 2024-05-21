@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Python Flask</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="../static/postImage.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="containter">
+        <div class="header">
+            <nav class="header-menu">
+              <ul class="menu">
+                <li role="presentation" ><a href="/home">Home</a></li>
+                <li role="presentation"><a href="/check-wood">Check Wood</a></li>
+              </ul>
+            </nav>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+  </body>
+</html>

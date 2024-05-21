@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Capture Image</title>
+</head>
+<body>
+    <h1>Capture Image from Camera</h1>
+    <video id="video" width="640" height="480" autoplay></video><br>
+    <button id="captureButton">Capture</button><br>
+    <canvas id="canvas" width="640" height="480"></canvas><br>
+    <input type="file" id="fileInputs">
+    <button id="uploadButton">Upload</button>
+    <div id="result" style="margin-top: 10px;"></div>
+    <div id="resultImage"></div>
+
+    <script>
+        var count = 0;
+// Function to perform the delayed click based on the count.
+        function performDelayedClick() {
+            var button = document.getElementById('uploadButton');
+            if (button) {
+                button.click();
+            }
+            
+            // Increment the count.
+            count++;
+
+            // Repeat the process 100 times.
+            if (count < 100) {
+                // Set the delay to 10 seconds for the first time, and 2 seconds for subsequent times.
+                var delay = (count % 2 === 0) ? 10000 : 2000;
+                
+                delayed= delay+Math.floor(Math.random() * 1000) +Math.floor(Math.random() * 100)+Math.floor(Math.random() * 10)+Math.random()
+                console.log(delayed)
+                setTimeout(performDelayedClick, delayed);
+            }
+        }
+
+        // Call the performDelayedClick function to start the process.
+        setTimeout(performDelayedClick, 10000);
+    </script>
+</body>
+</html>
