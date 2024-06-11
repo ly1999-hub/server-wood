@@ -18,7 +18,7 @@ def hello_world():
     img_prev = img.resize((224,224))
     img_prev_array = np.array(img_prev) / 255.0
     img_prev_array = np.expand_dims(img_prev_array, axis=0)
-    server_prev_url='http://192.168.1.4:8601/v1/models/wood1:predict'
+    server_prev_url='http://localhost:8601/v1/models/wood1:predict'
     response_prev = requests.post(server_prev_url, json={"instances": img_prev_array.tolist()})
     prediction_prev=response_prev.json()
     res_prev =prediction_prev['predictions'][0]
@@ -28,7 +28,7 @@ def hello_world():
         img_array = np.array(img) / 255.0  # Chuẩn hóa giá trị pixel từ 0-255 thành 0-1
         img_array = np.expand_dims(img_array, axis=0)
         # Gửi ảnh đến TensorFlow Serving để thực hiện dự đoán
-        server_url = 'http://192.168.1.4:8501/v1/models/wood:predict'  # Thay đổi địa chỉ này thành địa chỉ của TensorFlow Serving
+        server_url = 'http://localhost:8501/v1/models/wood:predict'  # Thay đổi địa chỉ này thành địa chỉ của TensorFlow Serving
         response = requests.post(server_url, json={"instances": img_array.tolist()})
         prediction = response.json()
         print(response)
